@@ -11,20 +11,27 @@
 		<header role = "banner">
 			<h1> Thinkful Tube Challenge </h1>
 		</header>
+
 		<main role = "main">
-			<div class = "searchInstructions">
-				<p>Looking for a particular YouTube video? We'll help you out! </p>
-			</div>
-			<form class = "searchForm">
-				<label for = "searchField"></label>
-				<input type="text" name="searchInput" id = "searchField" placeholder="Enter Search Term here">
-				<button type="submit">Search</button>
-			</form>
-			<h2> Results </h2>
-			<div class = "searchResults">
-				<p>Results will display here. Use the search above to get started!</p>
-			</div>
+			<section>
+				<div class = "searchInstructions">
+					<p>Do a quick search for YouTube videos here.</p>
+				</div>
+				<form class = "searchForm">
+					<label for = "searchField"></label>
+					<input type="text" name="searchInput" id = "searchField" class = "searchBox" placeholder="Enter Search Term here">
+					<button type="submit" class = "searchButton">Search</button>
+				</form>
+			</section>
+
+			<section>
+				<h2> Results </h2>
+				<div class = "searchResults">
+					<p>Results will display here. Use the search above to get started!</p>
+				</div>
+			</section>
 		</main>
+
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="index.js"></script>
 	</body>
