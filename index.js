@@ -16,6 +16,13 @@ function getDataFromApi(searchTerm, callback) {
   $.getJSON(youTubeURL, query, callback);
 }
 
+// Function that produces the number of results string to be put into the DOM
+function resultsNumberString (data) {
+	console.log (`resultsNumberString function accessed`);
+	let resultNum = `Showing ${data.pageInfo.resultsPerPage} of ${data.pageInfo.totalResults}`;
+	return resultNum;
+}
+
 // Function that produces the results html string to be put into the DOM
 
 function resultsString (result) {
@@ -23,9 +30,9 @@ function resultsString (result) {
 	let resultsArray = [];
 	for (let i=0; i<result.items.length; i++){
 		resultsArray.push(`
-	    <div>
+	    <div class = "resultThumbnail">
 	    	<a href = "https://www.youtube.com/watch?v=${result.items[i].id.videoId}"  target="_blank">
-	   			<img src = "${result.items[i].snippet.thumbnails.medium.url}" alt="Thumbnail for '${result.items[i].snippet.thumbnails.title}'" class = "videoThumbnail">
+	   			<img src = "${result.items[i].snippet.thumbnails.medium.url}" alt="Thumbnail for ${result.items[i].snippet.title}" class = "videoThumbnail">
 	   		</a>
 	    </div>`)
 	};
@@ -39,6 +46,8 @@ function renderResults (data) {
 	console.log (`renderResults function accessed`);
 	console.log (data);
 	let finalDisplay = resultsString(data);
+	let finalNumber = resultsNumberString (data);
+	$('.resultsNumber').prop('hidden', false).html(finalNumber);
 	$('.searchResults').html(finalDisplay);
 }
 

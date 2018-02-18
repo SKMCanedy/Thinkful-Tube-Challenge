@@ -1,3 +1,5 @@
+<!-- Unsure how to get VoiceOver to read the searchInstructions div. Unsure if it's my inexperience with using VO or if it's in my html setup -->
+
 <!DOCTYPE html>
 <html lang ="en">
 <head>
@@ -12,21 +14,21 @@
 			<h1> Thinkful Tube Challenge </h1>
 		</header>
 
-		<main role = "main">
+		<main role = "main" aria-live="passive">
 			<section>
 				<div class = "searchInstructions">
 					<p>Do a quick search for YouTube videos here.</p>
 				</div>
 				<form class = "searchForm">
-					<label for = "searchField"></label>
-					<input type="text" name="searchInput" id = "searchField" class = "searchBox" placeholder="Enter Search Term here">
+					<input type="text" name="searchInput" id = "searchField" class = "searchBox" placeholder="Enter Search Term here" aria-label= "Search Field">
 					<button type="submit" class = "searchButton">Search</button>
 				</form>
 			</section>
 
 			<section>
 				<h2> Results </h2>
-				<div class = "searchResults">
+				<div class = "resultsNumber" aria-live="assertive" hidden></div>
+				<div class = "searchResults" aria-live="assertive">
 					<p>Results will display here. Use the search above to get started!</p>
 				</div>
 			</section>
