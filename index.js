@@ -9,6 +9,7 @@ function getDataFromApi(searchTerm, callback) {
 	console.log (`getDataFromApi function accessed`);
   const query = {
     part: 'snippet',
+    type: 'video',
 	key: 'AIzaSyCQh-c-AAYXStZzevOUQ0WX53Ges_NXO9E',
 	q: `${searchTerm}`,
   }
@@ -23,7 +24,9 @@ function resultsString (result) {
 	for (let i=0; i<result.items.length; i++){
 		resultsArray.push(`
 	    <div>
-	   		<img src = "${result.items[i].snippet.thumbnails.medium.url}" alt="Thumbnail for '${result.items[i].snippet.thumbnails.title}'" class = "videoThumbnail"/>
+	    	<a href = "https://www.youtube.com/watch?v=${result.items[i].id.videoId}"  target="_blank">
+	   			<img src = "${result.items[i].snippet.thumbnails.medium.url}" alt="Thumbnail for '${result.items[i].snippet.thumbnails.title}'" class = "videoThumbnail">
+	   		</a>
 	    </div>`)
 	};
 	return resultsArray;
